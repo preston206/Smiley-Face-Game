@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Smiley Matching Game</title>
+
+	<script type="text/javascript">
+		function generateFaces() {
+			var numberOfFaces = 5;			
+			var theLeftSide = document.getElementById("leftSide");
+
+			while (numberOfFaces > 0) {
+				var smile_img = document.createElement("img");
+				smile_img.src = "http://home.cse.ust.hk/~rossiter/mooc/matching_game/smile.png";
+				var randomLeft = Math.random() * 400;
+				randomLeft = Math.floor(randomLeft) + 1;
+				var randomRight = Math.random() * 400;
+				randomRight = Math.floor(randomRight) + 1;
+				var leftPos = randomLeft;
+				var topPos = randomRight;
+				smile_img.style.left = leftPos + "px";
+				smile_img.style.top = topPos + "px";
+				theLeftSide.appendChild(smile_img);
+				numberOfFaces -= 1;
+			}
+		}
+	</script>
+
+	<style type="text/css">
+		/*body {
+			background-color: #909090;
+		}*/
+		/*main {
+			margin-left: 0;
+			font-size: 0;
+		}*/
+		
+		div {
+			position: absolute;
+			width: 500px;
+			height: 500px;
+		}
+		
+		#rightSide {
+			left: 505px;
+			border-left: 2px solid black;
+		}
+		
+		img {
+			position: absolute;
+		}
+		
+		header {
+			background-color: #f2f2f2;
+			width: 1000px;
+		}
+		
+		h1,
+		p {
+			margin-left: 7px;
+		}
+	</style>
+</head>
+
+<body id="theBody" onload="generateFaces()">
+	<header>
+		<h1>
+			Matching Game
+		</h1>
+		<p>
+			Click on the extra smiley face on the left.
+		</p>
+	</header>
+
+	<main>
+		<div id="leftSide"></div>
+		<div id="rightSide"></div>
+	</main>
+</body>
+
+</html>
